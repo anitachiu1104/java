@@ -1,0 +1,1 @@
+INSERT INTO `schedule_job` (`schedule_job_id`, `job_name`, `alias_name`, `job_group`, `job_trigger`, `status`, `cron_expression`, `is_sync`, `description`, `gmt_create`, `gmt_modify`) VALUES (1, 'task1', 'task1-alis', 'group1', '1', '1', '0/2 * * * * ?', '0', '1', '2017-3-14 15:46:44', '2017-3-14 15:47:10');
