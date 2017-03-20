@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd       
+	 http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<context:property-placeholder
+		location="classpath*:dubbo.properties" />
+	
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="test01-provider" />
+    <dubbo:annotation package="com.zhubajie.test.dubbo02" />
+	<!-- 使用multicast广播注册中心暴露服务地址 -->
+	<dubbo:registry address="${dubbo.registry}" />
+<!-- 	<dubbo:protocol name="dubbo" port="${dubbo.port}" /> -->
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+<!-- 	<dubbo:protocol name="dubbo" port="${dubbo.port}" heartbeat="6000"/> -->
+	<dubbo:protocol name="dubbo" server="netty" port="${dubbo.port}" serialization="hessian2"  />
+<!-- 	<dubbo:protocol name="dubbo" server="netty" port="${dubbo.port}" serialization="dubbo" />  -->
+<!-- 	<dubbo:protocol name="dubbo" server="netty" port="${dubbo.port}" serialization="java" />  -->
+<!-- 	<dubbo:protocol name="rmi" server="netty" port="${dubbo.port}" serialization="java" />    -->
+<!-- 	<dubbo:protocol name="rmi" server="netty" port="${dubbo.port}" serialization="hessian2"  />  -->
+<!--    <dubbo:protocol name="hessian" port="8100" server="servlet" serialization="hessian2" /> -->
+       <dubbo:protocol name="webservice" port="8100" server="servlet" />
+	<!-- 启动不检查依赖 超时设置1min -->
+	<dubbo:consumer check="false" timeout="60000"/>
+
+	<dubbo:service interface="com.zhubajie.test.dubbo02.Math"
+		ref="mathImpl" />
+	<dubbo:service interface="com.zhubajie.test.dubbo02.IBusinessOrder"
+		ref="businessOrder" executes="5" connections="100" />
+</beans>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+	  <groupId>com.zhubajie.test</groupId>
+	  <artifactId>test-dubbo-02</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>test-dubbo-02-comsumer-concurrency</artifactId>
+	<packaging>jar</packaging>
+	<name>${project.artifactId}</name>
+
+ 
+  
+	<dependencies>
+<!--  <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency> -->
+      <dependency>
+          <groupId>org.javassist</groupId>
+          <artifactId>javassist</artifactId>
+          <version>3.20.0-GA</version>
+          <scope>runtime</scope>
+      </dependency>
+    
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+	</dependency>
+	<dependency>  
+         <groupId>org.springframework</groupId>  
+         <artifactId>spring-context-support</artifactId>  
+     </dependency>
+     <dependency> 
+        <groupId>org.springframework</groupId> 
+        <artifactId>spring-web</artifactId> 
+    </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-webmvc</artifactId>
+      </dependency>
+
+      <!-- json转换包 -->
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-core</artifactId>
+          <version>2.8.1</version>
+      </dependency>
+
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-databind</artifactId>
+          <version>2.8.1</version>
+      </dependency>
+
+
+
+	<!--以上 json转换包 -->
+      <dependency>
+          <groupId>com.caucho</groupId>
+          <artifactId>hessian</artifactId>
+      </dependency>
+
+
+      <!-- dubbo start-->
+
+      <dependency>
+          <groupId>com.101tec</groupId>
+          <artifactId>zkclient</artifactId>
+      </dependency>
+
+      <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>dubbo</artifactId>
+<!--       <exclusions>
+      	<exclusion>
+      		<artifactId>spring</artifactId>
+      		<groupId>org.springframework</groupId>
+      	</exclusion>
+      </exclusions> -->
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+    </dependency>
+    <!-- dubbo end-->
+    
+    <!-- 自定义依赖 -->
+		<dependency>
+			<groupId>com.zhubajie.test</groupId>
+			<artifactId>test-dubbo-02-api</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>	
+		<dependency>
+			<groupId>com.zhubajie.test</groupId>
+			<artifactId>test-dubbo-02-api</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-simple</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+		</dependency>
+
+	</dependencies>
+</project>
